@@ -166,7 +166,6 @@ function binaryActionV2() {
   let index = 0;
   let result = "";
   const charWidth = 8;
-  needed;
   const interval = setInterval(() => {
     if (index < binaryWord.length) {
       const chars = document.querySelectorAll(".binary-char");
