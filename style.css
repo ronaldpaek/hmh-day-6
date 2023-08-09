@@ -1,4 +1,4 @@
-// https://piccalil.li/blog/a-modern-css-reset
+/* https://piccalil.li/blog/a-modern-css-reset */
 
 /* Box sizing rules */
 *,
@@ -22,8 +22,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -62,7 +62,7 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
 
   *,
@@ -73,4 +73,270 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.wrapper {
+  min-height: 500px;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 1rem;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin: 0 auto;
+  width: 80%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#actionSection {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  column-gap: 1rem;
+  width: 90%;
+}
+
+#actionSection > label {
+  grid-column: 1 / 3;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 95%;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #actionSection {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  #actionSection > * {
+    grid-column: 1 / 2;
+  }
+}
+
+#actionSection button {
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#actionSection button:hover {
+  background-color: #e67e22;
+}
+
+button[onclick="openModal(1)"] {
+  background: linear-gradient(45deg, #f3ec78, #af4261);
+  color: #fff;
+  border: none;
+}
+
+button[onclick="openModal(2)"] {
+  background: linear-gradient(45deg, #56ab2f, #a8e063);
+  color: #fff;
+  border: none;
+}
+
+#myModalV1 {
+  background: linear-gradient(45deg, #f3ec78, #af4261);
+  color: #fff;
+}
+
+#myModalV2 {
+  background: linear-gradient(45deg, #56ab2f, #a8e063);
+  color: #fff;
+}
+
+#myModalV1 button,
+#myModalV1 select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+#myModalV2 button,
+#myModalV2 select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+dialog {
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+menu {
+  margin-top: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes growing {
+  from {
+    font-size: 1em;
+  }
+  to {
+    font-size: 2em;
+  }
+}
+
+.yell-typing-effect {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1s steps(10, end) forwards;
+}
+
+.yell-growing-effect {
+  animation: growing 1s forwards;
+}
+
+#word-result {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+#result-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+#word-display {
+  font-family: monospace;
+  display: inline-block;
+}
+
+.char {
+  transition: color 0.5s linear;
+  color: black;
+}
+
+#arrow {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  transition: left 0.5s linear;
+  display: none;
+}
+
+#char-count {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  transition: left 0.5s linear;
+}
+
+#calculation {
+  font-family: monospace;
+  margin-top: 4px;
+}
+#calculation,
+#calculation-result {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+#binary-container {
+  position: relative;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  height: 55px;
+  width: 100%;
+}
+
+#binary-arrow {
+  position: relative;
+  display: none;
+  width: 10px;
+  height: 10px;
+  color: black;
+  content: "^";
+}
+
+#binary-result {
+  margin-top: 4px;
+  height: 50px;
+}
+
+.binary-char {
+  transition: color 0.5s ease-in-out;
+}
+
+.binary-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+}
+
+.leet-value {
+  color: #000;
+}
+
+#leet-container {
+  position: relative;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 55px;
+}
+
+#leet-arrow {
+  position: relative;
+  display: none;
+  left: 0;
+  color: black;
+  content: "^";
+}
+
+#leet-result {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 55px;
 }

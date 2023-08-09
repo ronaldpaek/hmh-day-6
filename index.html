@@ -4,9 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <script src="script.js" defer></script>
     <title>Super Useful JS App</title>
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <!-- Version 1 -->
+      <dialog id="myModalV1">
+        <form method="dialog">
+          <p><label for="choice">Choose a command:</label></p>
+          <select id="choiceV1">
+            <option value="yell">Yell</option>
+            <option value="length">Length</option>
+            <option value="numSum">NumSum</option>
+            <option value="binary">Binary</option>
+            <option value="leet">Leet</option>
+          </select>
+          <menu>
+            <button value="submit" onclick="executeChoice(1)">Submit</button>
+            <button value="cancel" onclick="closeModal(1)">Cancel</button>
+          </menu>
+        </form>
+      </dialog>
+      <button onclick="openModal(1)">Open Command Prompt V1</button>
+
+      <dialog id="myModalV2">
+        <!-- Version 2 -->
+        <form method="dialog">
+          <p><label for="choice">Choose a command:</label></p>
+          <select id="choiceV2">
+            <option value="yellV2">Yell</option>
+            <option value="lengthV2">Length</option>
+            <option value="numSumV2">NumSum</option>
+            <option value="binaryV2">Binary</option>
+            <option value="leetV2">Leet</option>
+          </select>
+          <menu>
+            <button value="submit" onclick="executeChoice(2)">Submit</button>
+            <button value="cancel" onclick="closeModal(2)">Cancel</button>
+          </menu>
+        </form>
+      </dialog>
+      <button onclick="openModal(2)">Open Command Prompt V2</button>
+      <div id="actionSection"></div>
+    </div>
+  </body>
 </html>
